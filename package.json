@@ -1,0 +1,33 @@
+{
+  "name": "docsify-plugin-share",
+  "version": "1.0.0",
+  "description": "An app that simply runs navigator.share() to open the share intent on supported platforms.",
+  "main": "dist/index.js",
+  "module": "dist/index.min.mjs",
+  "unpkg": "dist/index.umd.min.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "npm run bundle:esm && npm run bundle:esm:min && npm run bundle:umd && npm run bundle:umd:min",
+    "bundle:esm": "rollup index.js --file dist/index.mjs --format esm",
+    "bundle:esm:min": "terser --ecma 6 --compress --mangle --module -o dist/index.min.mjs -- dist/index.mjs",
+    "bundle:umd": "rollup index.js --file dist/index.umd.js --format umd --name openShareURL",
+    "bundle:umd:min": "terser --ecma 6 --compress --mangle -o dist/index.umd.min.js -- dist/index.umd.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heartade/docsify-share.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/heartade/docsify-share/issues"
+  },
+  "homepage": "https://github.com/heartade/docsify-share#readme",
+  "devDependencies": {
+    "rollup": "^3.2.5",
+    "terser": "^5.15.1"
+  }
+}
